@@ -22,9 +22,10 @@ $content
 </body>
 </html>
     """
+    # Esta pensada para usar la plantilla ya creada pero en caso de no haber plantilla creara una de base
     # Verifica si el archivo existe
     if not os.path.exists(path):
-        # Si no existe, crea el directorio si es necesario y escribe el contenido predeterminado
+        # Si no existe, crea el directorio si es necesario y escribe el contenido predeterminado 
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding='utf-8') as file:
             file.write(contenido_default)
