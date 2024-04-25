@@ -36,6 +36,16 @@ $content
 
 def aplicar_plantilla(aves, template):
     elementos_lista = ""
+    count = 0
     for ave in aves:
-        elementos_lista += f'<li>{ave["name"]["spanish"]} ({ave["name"]["english"]})<br><img src="{ave["images"]["main"]}" alt="{ave["name"]["spanish"]}"></li>\n'
+        display = 'block' if count < 20 else 'none'  
+        elementos_lista += f'''
+        <div class="card" style="display: {display};">
+            <img src="{ave["images"]["main"]}" alt="{ave["name"]["spanish"]}" style="width:100%">
+            <div class="card-container">
+                <h4><b>{ave["name"]["spanish"]} ({ave["name"]["english"]})</b></h4>
+            </div>
+        </div>
+        '''
+        count += 1
     return template.substitute(content=elementos_lista)
